@@ -1,0 +1,35 @@
+<!-- <div style="display: flex; justify-content: center;">
+    <img [src]="imageBaseUrl + item.poster_Path" alt="poster" width="100%">
+</div>
+{{item.release_Date}} -->
+
+
+<mat-card class="example-card" style="margin: 18px;">
+    <mat-card-header style="display: block;">
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <p class="noMargin" style="font-size: 14px; font-weight: bold;">{{item.title}}</p>
+        <small>{{item.release_Date}}</small>
+    </mat-card-header>
+    <div style="display: flex;justify-content: center;">
+        <ng-container *ngIf="item.poster_Path != null">
+            <img [src]="imageBaseUrl + item.poster_Path" [alt]="item.title" style="width: 100%;">
+        </ng-container>
+        <ng-container *ngIf="item.poster_Path == null">
+            <img src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
+                [alt]="item.title" style="width: 100%;">
+        </ng-container>
+    </div>
+    <small>{{genresString}}</small>
+    <div class="flexCenter" style="justify-content: space-evenly;margin: 5px 0;">
+        <span class="flexCenter">
+            <span class="material-icons" style="color: #f9cd03">
+                star
+            </span><span> {{item.vote_Average}}</span></span>
+        <span class="flexCenter">
+            <span class="material-icons">
+                language
+            </span> <span> {{item.original_Language | uppercase}}</span></span>
+    </div>
+    <button class="btn btn-success" style="width: 100%; margin-top: 5px;"
+        [routerLink]="['/movie-detail', item.id]">View</button>
+</mat-card>

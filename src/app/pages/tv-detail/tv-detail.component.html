@@ -1,0 +1,26 @@
+<div class="container" *ngIf="tv">
+    <div class="row">
+        <div class="col-md-3">
+            <img [src]="imageBaseUrl + tv.poster_Path" alt="" width="100%">
+        </div>
+        <div class="col-md-9">
+            <h1>{{tv.name}}</h1>
+            <p>{{tv.first_Air_Date}} <ng-container *ngIf="tv.production_Countries.length > 0">(
+                    <ng-container *ngFor="let item of tv.production_Countries; let index = index">
+                        {{item.iso_3166_1}}
+                        <ng-container *ngIf="tv.production_Countries.length - 1 != index"> - </ng-container>
+                    </ng-container>
+                    )
+                </ng-container>
+                <ng-container *ngFor="let item of tv.genres; let index = index">
+                    {{item.name}}
+                    <ng-container *ngIf="tv.genres.length - 1 != index">, </ng-container>
+                </ng-container>
+            </p>
+
+            <i>{{tv.tagline}}</i>
+            <h5>Overview</h5>
+            <small>{{tv.overview}}</small>
+        </div>
+    </div>
+</div>

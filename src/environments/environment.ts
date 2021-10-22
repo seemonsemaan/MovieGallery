@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: "https://localhost:44307/api",
+  imageBaseUrl: "https://image.tmdb.org/t/p/original",
+  apiKey: "ddf9442c69a1aa97524b66e3cba8b9b0"
 };
 
 /*

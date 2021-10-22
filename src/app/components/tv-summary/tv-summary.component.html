@@ -1,0 +1,22 @@
+<mat-card class="example-card" style="margin: 18px;">
+    <mat-card-header style="display: block;">
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <p class="noMargin" style="font-size: 14px; font-weight: bold;">{{item.original_Name}}</p>
+        <small>{{item.first_Air_Date}}</small>
+    </mat-card-header>
+    <div style="display: flex;justify-content: center;">
+        <img [src]="imageBaseUrl + item.poster_Path" [alt]="item.title" style="width: 100%;">
+    </div>
+    <small>{{genresString}}</small>
+    <div class="flexCenter" style="justify-content: space-evenly;margin: 5px 0;">
+        <span class="flexCenter">
+            <span class="material-icons" style="color: #f9cd03">
+                star
+            </span><span> {{item.vote_Average}}</span></span>
+        <span class="flexCenter">
+            <span class="material-icons">
+                language
+            </span> <span> {{item.original_Language | uppercase}}</span></span>
+    </div>
+    <button class="btn btn-success" style="width: 100%; margin-top: 5px;" [routerLink]="['/tv-detail', item.id]">View</button>
+</mat-card>

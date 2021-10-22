@@ -1,0 +1,16 @@
+<div class="container">
+    <ng-container *ngIf="tvGenre">
+        <div>
+            <h3><a style="text-decoration: none; color: black;"
+                [routerLink]="['/cat-tv', tvGenre.id]">{{tvGenre.name}}</a></h3>
+            <ng-container *ngIf="tvs.length > 0">
+                <div class="row">
+                    <ng-container *ngFor="let item of tvs">
+                        <app-tv-summary class="col-sm-6 col-md-4 col-lg-3" [item]="item" [genres]="genres">
+                        </app-tv-summary>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>

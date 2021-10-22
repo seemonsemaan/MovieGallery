@@ -1,0 +1,17 @@
+<div class="container">
+    <ng-container *ngIf="movieGenre">
+        <div>
+            <h3><a style="text-decoration: none; color: black;"
+                    [routerLink]="['/cat-mov', movieGenre.id]">{{movieGenre.name}}</a>
+            </h3>
+            <ng-container *ngIf="movies.length > 0">
+                <div class="row">
+                    <ng-container *ngFor="let item of movies">
+                        <app-movie-summary class="col-sm-6 col-md-4 col-lg-3" [item]="item" [genres]="genres">
+                        </app-movie-summary>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>

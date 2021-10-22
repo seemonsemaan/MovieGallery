@@ -1,0 +1,26 @@
+<div class="container" *ngIf="movie">
+    <div class="row">
+        <div class="col-md-3">
+            <img [src]="imageBaseUrl + movie.poster_Path" alt="" width="100%">
+        </div>
+        <div class="col-md-9">
+            <h1>{{movie.title}}</h1>
+            <p>{{movie.release_Date}} <ng-container *ngIf="movie.production_Countries.length > 0">(
+                    <ng-container *ngFor="let item of movie.production_Countries; let index = index">
+                        {{item.iso_3166_1}}
+                        <ng-container *ngIf="movie.production_Countries.length - 1 != index"> - </ng-container>
+                    </ng-container>
+                    )
+                </ng-container>
+                <ng-container *ngFor="let item of movie.genres; let index = index">
+                    {{item.name}}
+                    <ng-container *ngIf="movie.genres.length - 1 != index">, </ng-container>
+                </ng-container>
+            </p>
+
+            <i>{{movie.tagline}}</i>
+            <h5>Overview</h5>
+            <small>{{movie.overview}}</small>
+        </div>
+    </div>
+</div>

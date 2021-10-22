@@ -1,0 +1,14 @@
+<!-- <div style="display: flex;"> -->
+<div class="row" style="padding: 10px;">
+    <div class="col-md-4">
+        <button class="btn btn-primary"  (click)="goToPage(page - 1)" *ngIf="page > 1">Back</button>
+    </div>
+    <div class="col-md-4" style="display: flex; justify-content: space-evenly;">
+        <button class="btn" *ngIf="page > 1" (click)="goToPage(page - 1)">{{page - 1}}</button>
+        <button class="btn btn-info" style="color: white;">{{page}}</button>
+        <button class="btn" *ngIf="page < maxNum" (click)="goToPage(page + 1)">{{page + 1}}</button>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary"  (click)="goToPage(page + 1)" style="float: right;" *ngIf="page < maxNum">Next</button>
+    </div>
+</div>

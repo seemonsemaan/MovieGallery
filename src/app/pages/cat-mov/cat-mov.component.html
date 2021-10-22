@@ -1,0 +1,12 @@
+<div class="container">
+    <ng-container *ngIf="movies.length > 0">
+        <div class="row">
+            <ng-container *ngFor="let item of movies">
+                <app-movie-summary class="col-sm-6 col-md-4 col-lg-3" [item]="item" [genres]="movieGenres">
+                </app-movie-summary>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <app-paging [page]="page" [maxNum]="totalPages" (goToEvent)="goToPage($event)"></app-paging>
+</div>
